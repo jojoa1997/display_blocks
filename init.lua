@@ -97,8 +97,8 @@ minetest.register_craft({
 	output = 'display_blocks:titanium_base',
 	recipe = {
 		{'', 'default:mese_crystal_fragment', ''},
-		{'display_blocks:tougher_titanium', 'display_blocks:titanium_block', 'display_blocks:tougher_titanium'},
-		{'', 'display_blocks:tougher_titanium', ''},
+		{'titanium:tougher_titanium', 'titanium:block', 'titanium:tougher_titanium'},
+		{'', 'titanium:tougher_titanium', ''},
 	}
 })
 
