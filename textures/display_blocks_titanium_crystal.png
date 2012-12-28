@@ -1,0 +1,65 @@
+<head>
+    <title> </title>
+    <link id="GlobalCSS" rel="stylesheet" type="text/css" />
+    
+    <script src="uicore.js" language="javascript" type="text/javascript"></script>
+    <script src="divwrapper.js" language="javascript" type="text/javascript"></script>
+    <script src="UIResource.js" language="javascript" type="text/javascript"></script>
+    <script src="localization.js" language="javascript" type="text/javascript"></script>
+    <script src="externalwrapper.js" language="javascript" type="text/javascript"></script>
+    <script src="saveduser.js" language="javascript" type="text/javascript"></script>    
+    <script src="text.js" language="javascript" type="text/javascript"></script>
+    <script src="image.js" language="javascript" type="text/javascript"></script>
+    <script src="link.js" language="javascript" type="text/javascript"></script>    
+    <script src="textbox.js" language="javascript" type="text/javascript"></script>   
+    <script src="checkbox.js" language="javascript" type="text/javascript"></script>  
+    <script src="button.js" language="javascript" type="text/javascript"></script>   
+    <script src="combobox.js" language="javascript" type="text/javascript"></script>
+    <script src="usertile.js" language="javascript" type="text/javascript"></script>
+    <script src="tilebox.js" language="javascript" type="text/javascript"></script>
+    <script src="newusercomm.js" language="javascript" type="text/javascript"></script>        
+</head>
+<body onload="javascript:initializePage();" style="padding: 0x 0x 0x 0x" scroll="no">
+    <table class='internallayoutwithimage' id='tb_id_Header'>
+        <tr><td style="height:56px"/>
+        </tr>
+    </table>
+    <table class="defaultlayout" id='pd_id_TableLayout'>
+        <tr>
+            <td style="width: 8px" />
+            <td style="width: 282px; height: 56" valign="top">
+                <div id="pd_id_Logo" style="padding-top: 8px">
+                </div>
+            </td>
+            <td style="width: 40px" />
+            <td style="width: 62px" />
+            <td style="width: 8px" />            
+        </tr>
+        <!-- test hook -->
+        <tr>
+            <td colspan="5">
+                <div id="TestHook" class="testhook">
+                    <label id = "__TestHook_ErrorCode__"></label>
+                    <label id = "__TestHook_ErrorMsg__"></label>
+                    <label id = "__TestHook_ErrorType__"></label>                    
+                </div>            
+            </td>
+        </tr>
+        <tr>
+            <td/>
+            <td>
+                <!-- HEADING TEXT -->
+                <div id="pd_id_Heading" />
+            </td>
+            <td />
+            <td valign="top" class="RightAlign">
+                <!-- HELP LINK -->
+                <div id='pd_id_HelpLink'/>
+            </td>
+             <td/>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <table class="internallayout">
+                    <tr>
+         
