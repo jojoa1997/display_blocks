@@ -43,7 +43,7 @@ end
 minetest.register_on_dignode(remove_crystal)
 
 minetest.register_craft({
-	output = 'display_blocks:mese_base',
+	output = 'display_blocks:mese_base 5',
 	recipe = {
 		{'', 'default:mese_crystal_fragment', ''},
 		{'default:mese_crystal', 'default:mese_block', 'default:mese_crystal'},
@@ -94,7 +94,7 @@ end
 minetest.register_on_dignode(remove_crystal)
 
 minetest.register_craft({
-	output = 'display_blocks:titanium_base',
+	output = 'display_blocks:titanium_base 5',
 	recipe = {
 		{'', 'default:mese_crystal_fragment', ''},
 		{'titanium:tougher_titanium', 'titanium:block', 'titanium:tougher_titanium'},
@@ -146,7 +146,7 @@ end
 minetest.register_on_dignode(remove_crystal)
 
 minetest.register_craft({
-	output = 'display_blocks:uranium_base',
+	output = 'display_blocks:uranium_base 5',
 	recipe = {
 		{'', 'default:mese_crystal_fragment', ''},
 		{'display_blocks:uranium_dust', 'display_blocks:uranium_block', 'display_blocks:uranium_dust'},
@@ -200,10 +200,173 @@ end
 minetest.register_on_dignode(remove_crystal)
 
 minetest.register_craft({
-	output = 'display_blocks:glass_base',
+	output = 'display_blocks:glass_base 5',
 	recipe = {
 		{'', 'default:mese_crystal_fragment', ''},
 		{'default:sand', 'default:glass', 'default:sand'},
 		{'', 'default:sand', ''},
+	}
+})
+
+
+--
+--Fire Display
+--
+
+minetest.register_node( "display_blocks:fire_base", {
+	description = "Fire Display Base",
+	tile_images = { "display_blocks_fire_block.png" },
+	is_ground_content = true,
+	groups = {cracky=3,},
+	sunlight_propagates = true,
+	paramtype = "light",
+	drawtype = "glasslike",
+})
+
+minetest.register_node( "display_blocks:fire_crystal", {
+	drawtype = "plantlike",
+	description = "Fire Display Crystal",
+	tile_images = { "display_blocks_fire_crystal.png" },
+	is_ground_content = true,
+	paramtype = "light",
+	visual_scale = 1.2,
+	light_source = 10,
+	groups = {immortal=1},
+})
+
+minetest.register_abm({
+	nodenames = {"display_blocks:fire_base"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		pos.y = pos.y + 1
+		minetest.env:add_node(pos, {name="display_blocks:fire_crystal"})
+	end
+})
+
+function remove_crystal(pos, node, active_object_count, active_object_count_wider)
+	if
+	  node.name == "display_blocks:fire_base"
+	then
+	  pos.y = pos.y + 1
+	  minetest.env:remove_node(pos, {name="display_blocks:fire_crystal"})
+  end
+end
+minetest.register_on_dignode(remove_crystal)
+
+minetest.register_craft({
+	output = 'display_blocks:fire_base 5',
+	recipe = {
+		{'', 'default:mese_crystal_fragment', ''},
+		{'bucket:bucket_lava', 'default:glass', 'bucket:bucket_lava'},
+		{'', 'bucket:bucket_lava', ''},
+	}
+})
+
+
+--
+--Air Display
+--
+
+minetest.register_node( "display_blocks:air_base", {
+	description = "Air Display Base",
+	tile_images = { "display_blocks_air_block.png" },
+	is_ground_content = true,
+	groups = {cracky=3,},
+	sunlight_propagates = true,
+	paramtype = "light",
+	drawtype = "glasslike",
+})
+
+minetest.register_node( "display_blocks:air_crystal", {
+	drawtype = "plantlike",
+	description = "Air Display Crystal",
+	tile_images = { "display_blocks_air_crystal.png" },
+	is_ground_content = true,
+	paramtype = "light",
+	visual_scale = 1.2,
+	groups = {immortal=1},
+})
+
+minetest.register_abm({
+	nodenames = {"display_blocks:air_base"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		pos.y = pos.y + 1
+		minetest.env:add_node(pos, {name="display_blocks:air_crystal"})
+	end
+})
+
+function remove_crystal(pos, node, active_object_count, active_object_count_wider)
+	if
+	  node.name == "display_blocks:air_base"
+	then
+	  pos.y = pos.y + 1
+	  minetest.env:remove_node(pos, {name="display_blocks:air_crystal"})
+  end
+end
+minetest.register_on_dignode(remove_crystal)
+
+minetest.register_craft({
+	output = 'display_blocks:air_base 5',
+	recipe = {
+		{'', 'default:mese_crystal_fragment', ''},
+		{'bucket:bucket', 'default:glass', 'bucket:bucket'},
+		{'', 'bucket:bucket', ''},
+	}
+})
+
+
+--
+--Water Display
+--
+
+minetest.register_node( "display_blocks:water_base", {
+	description = "Water Display Base",
+	tile_images = { "display_blocks_water_block.png" },
+	is_ground_content = true,
+	groups = {cracky=3,},
+	sunlight_propagates = true,
+	paramtype = "light",
+	drawtype = "glasslike",
+})
+
+minetest.register_node( "display_blocks:water_crystal", {
+	drawtype = "plantlike",
+	description = "Water Display Crystal",
+	tile_images = { "display_blocks_water_crystal.png" },
+	is_ground_content = true,
+	paramtype = "light",
+	visual_scale = 1.2,
+	groups = {immortal=1},
+})
+
+minetest.register_abm({
+	nodenames = {"display_blocks:water_base"},
+	interval = 1.0,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		pos.y = pos.y + 1
+		minetest.env:add_node(pos, {name="display_blocks:water_crystal"})
+	end
+})
+
+function remove_crystal(pos, node, active_object_count, active_object_count_wider)
+	if
+	  node.name == "display_blocks:water_base"
+	then
+	  pos.y = pos.y + 1
+	  minetest.env:remove_node(pos, {name="display_blocks:water_crystal"})
+  end
+end
+minetest.register_on_dignode(remove_crystal)
+
+minetest.register_craft({
+	output = 'display_blocks:water_base 5',
+	recipe = {
+		{'', 'default:mese_crystal_fragment', ''},
+		{'bucket:bucket_water', 'default:glass', 'bucket:bucket_water'},
+		{'', 'bucket:bucket_water', ''},
 	}
 })
