@@ -19,7 +19,7 @@ minetest.register_node( "display_blocks:mese_crystal", {
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
@@ -70,7 +70,7 @@ minetest.register_node( "display_blocks:titanium_crystal", {
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
@@ -122,7 +122,7 @@ minetest.register_node( "display_blocks:uranium_crystal", {
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
@@ -176,7 +176,7 @@ minetest.register_node( "display_blocks:glass_crystal", {
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
@@ -231,7 +231,7 @@ minetest.register_node( "display_blocks:fire_crystal", {
 	paramtype = "light",
 	visual_scale = 1.2,
 	light_source = 10,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
@@ -285,7 +285,7 @@ minetest.register_node( "display_blocks:air_crystal", {
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
@@ -339,7 +339,7 @@ minetest.register_node( "display_blocks:water_crystal", {
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
-	groups = {immortal=1},
+	groups = {immortal=1, not_in_creative_inventory=1},
 })
 
 minetest.register_abm({
