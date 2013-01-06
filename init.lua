@@ -1,5 +1,5 @@
 --Loads dependencies so there is no need to have the other mods
-dofile(minetest.get_modpath("display_blocks").."/depends.lua");
+dofile(minetest.get_modpath("display_blocks").."/ores.lua");
 
 --
 --Mese Display
