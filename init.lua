@@ -370,3 +370,5 @@ minetest.register_craft({
 		{'', 'bucket:bucket_water', ''},
 	}
 })
+
+print("[Display Blocks] Loaded! by jojoa1997 :-)")
