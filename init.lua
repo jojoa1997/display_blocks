@@ -15,7 +15,7 @@ minetest.register_node( "display_blocks:mese_base", {
 minetest.register_node( "display_blocks:mese_crystal", {
 	drawtype = "plantlike",
 	description = "Mese Display Crystal",
-	tile_images = { "display_blocks_mese_crystal.png" },
+	tile_images = { "default_mese_crystal.png" },
 	is_ground_content = true,
 	paramtype = "light",
 	visual_scale = 1.2,
