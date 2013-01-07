@@ -53,6 +53,49 @@ minetest.register_craft({
 
 
 --
+--Mese Giver Display
+--
+
+minetest.register_node( "display_blocks:mese_giver_base", {
+	description = "Mese Giver Display Base",
+	tile_images = { "display_blocks_mese_giver_block.png" },
+	is_ground_content = true,
+	groups = {cracky=3},
+	drawtype = "glasslike",
+	paramtype = "light",
+})
+
+minetest.register_abm({
+	nodenames = {"display_blocks:mese_giver_base"},
+	interval = 600.0,
+	chance = 6,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		pos.y = pos.y + 1
+		minetest.env:add_node(pos, {name="default:mese"})
+	end
+})
+
+function remove_crystal(pos, node, active_object_count, active_object_count_wider)
+	if
+	  node.name == "display_blocks:mese_giver_base"
+	then
+	  pos.y = pos.y + 1
+	  minetest.env:remove_node(pos, {name="default:mese"})
+  end
+end
+minetest.register_on_dignode(remove_crystal)
+
+minetest.register_craft({
+	output = 'display_blocks:mese_giver_base',
+	recipe = {
+		{'', 'default:mese_crystal_fragment', ''},
+		{'display_blocks:mese_base', 'default:mese_block', 'display_blocks:mese_base'},
+		{'', 'display_blocks:mese_base', ''},
+	}
+})
+
+
+--
 --Titanium Display
 --
 
@@ -370,5 +413,19 @@ minetest.register_craft({
 		{'', 'bucket:bucket_water', ''},
 	}
 })
+
+
+--Aliases
+minetest.register_alias("mesebase", "display_blocks:")
+minetest.register_alias("mesegiverbase", "display_blocks:mese_base")
+minetest.register_alias("titaniumbase", "display_blocks:titanium_base")
+minetest.register_alias("uraniumbase", "display_blocks:uranium_base")
+minetest.register_alias("glassbase", "display_blocks:glass_base")
+minetest.register_alias("firebase", "display_blocks:fire_base")
+minetest.register_alias("airbase", "display_blocks:air_base")
+minetest.register_alias("waterbase", "display_blocks:water_base")
+
+
+
 
 print("[Display Blocks] Loaded! by jojoa1997 :-)")
