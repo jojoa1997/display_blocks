@@ -416,8 +416,8 @@ minetest.register_craft({
 
 
 --Aliases
-minetest.register_alias("mesebase", "display_blocks:")
-minetest.register_alias("mesegiverbase", "display_blocks:mese_base")
+minetest.register_alias("mesebase", "display_blocks:mese_base")
+minetest.register_alias("mesegiverbase", "display_blocks:mese_giver_base")
 minetest.register_alias("titaniumbase", "display_blocks:titanium_base")
 minetest.register_alias("uraniumbase", "display_blocks:uranium_base")
 minetest.register_alias("glassbase", "display_blocks:glass_base")
