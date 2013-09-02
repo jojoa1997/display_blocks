@@ -1,0 +1,1 @@
+uranium_with_technic = true

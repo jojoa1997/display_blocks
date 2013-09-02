@@ -1,5 +1,3 @@
-disp("uranium", "Uranium", 10, "uranium:uranium_block", "")
-
 minetest.register_node( "display_blocks:uranium_ore", {
 	description = "Uranium Ore",
 	tile_images = { "default_stone.png^uranium_ore.png" },
@@ -37,7 +35,7 @@ minetest.register_craft( {
 
 minetest.register_ore({
 	ore_type = "scatter",
-	ore = "display_blocks:uranium_dust",
+	ore = "display_blocks:uranium_ore",
 	wherein = "default:stone",
 	clust_scarcity = 10*10*10,
 	clust_num_ores =18,
@@ -48,7 +46,7 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type = "scatter",
-	ore = "display_blocks:uranium_dust",
+	ore = "display_blocks:uranium_ore",
 	wherein = "default:stone",
 	clust_scarcity =20*20*20,
 	clust_num_ores =40,
@@ -56,3 +54,5 @@ minetest.register_ore({
 	height_min = -7000,
 	height_max = -5000,
 })
+
+disp("uranium", "Uranium", 10, "display_blocks:uranium_block", "")

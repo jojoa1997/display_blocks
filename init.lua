@@ -1,6 +1,6 @@
 dofile(minetest.get_modpath("display_blocks").."/config.txt")
 
-function disp(base, name, light, rec, rp)
+function disp(base, name, light, rp)
 	minetest.register_node( "display_blocks:"..base.."_base", {
 		description = name.."Display Base",
 		tile_images = { "display_blocks_"..base.."_block.png" },
@@ -43,33 +43,32 @@ function disp(base, name, light, rec, rp)
 	minetest.register_on_dignode(remove_crystal)
 
 	minetest.register_craft({
-		output = 'display_blocks:,..base..'_base 5',
+		output = 'display_blocks:'..base..'_base 5',
 		recipe = {
 			{'', 'default:mese_crystal_fragment', ''},
 			{rec, 'default:glass', rec},
 			{'', rec, ''},
-		}
-		replacements = {{rec, rp}},
+		},
+		replacements = {rp},
 	})
-)
+end
 
 -- disp(base, name, rec, rp)
 disp("mese", "Mese", 0, "default:mese_block", "")
-disp("titanium", "Titanium", 0, "titanium:block", '')
 disp("glass", "Glass", 0, "default:sand", "")
-disp("fire", "Fire", 15, "bucket:bucket_lava",  "bucket:bucket_empty")
-disp("air", "Air", 5, "bucket:bucket_empty",  "bucket:bucket_empty")
-disp("water", "Water", 0, "bucket:bucket_water",  "bucket:bucket_empty")
+disp("fire", "Fire", 15, "bucket:bucket_lava", {{"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}})
+disp("air", "Air", 5, "bucket:bucket_empty", {{"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}})
+disp("water", "Water", 0, "bucket:bucket_water", {{"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}})
 
 if minetest.get_modpath("technic") and uranium_with_technic == false then
 	dofile(minetest.get_modpath("display_blocks").."/technic.lua")
-elseif minetest.get_modpath("technic") and uranium_with_technic == true then
-	dofile(minetest.get_modpath("display_blocks").."/technic.lua")
-	dofile(minetest.get_modpath("display_blocks").."/uranium.lua")
 else
 	dofile(minetest.get_modpath("display_blocks").."/uranium.lua")
 end
 
+if minetest.get_modpath("titanium") then
+	disp("titanium", "Titanium", 0, "titanium:block", '')
+end
 --
 --Mese Giver Display
 --
