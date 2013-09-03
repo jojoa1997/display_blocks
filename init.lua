@@ -7,7 +7,7 @@ elseif technic_uranium == true then
 	minetest.register_alias("display_blocks:uranium_block", "technic:uranium_block")
 end
 
-function disp(base, name, light, rp)
+function disp(base, name, light, rec, rp)
 	minetest.register_node( "display_blocks:"..base.."_base", {
 		description = name.."Display Base",
 		tile_images = { "display_blocks_"..base.."_block.png" },
@@ -53,26 +53,28 @@ function disp(base, name, light, rp)
 		output = 'display_blocks:'..base..'_base 5',
 		recipe = {
 			{'', 'default:mese_crystal_fragment', ''},
-			{rec, 'default:glass', rec},
+			{rec, 'display_blocks:empty_display', rec},
 			{'', rec, ''},
 		},
-		replacements = rp,
+		replacements = {{rec, rp}, {rec, rp},{rec, rp}},
 	})
 end
 
 -- disp(base, name, rec, rp)
-disp("mese", "Mese", 0, "default:mese_block", {})
-disp("glass", "Glass", 0, "default:sand", {})
-disp("fire", "Fire", 15, "bucket:bucket_lava", {{"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}})
-disp("air", "Air", 5, "bucket:bucket_empty", {{"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}})
-disp("water", "Water", 0, "bucket:bucket_water", {{"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}})
-disp("uranium", "Uranium", 10, "display_blocks:uranium_block", {})
-disp("earth", "Earth", 0, "display_blocks:compressed_earth", {})
-disp("metal", "Metal", 2, "default:steel_block", {})
-
+disp("mese", "Mese", 0, "default:mese_block", "")
+disp("glass", "Glass", 0, "default:sand", "")
+disp("fire", "Fire", 12, "bucket:bucket_lava" ,"bucket:bucket_empty")
+disp("air", "Air", 5, "bucket:bucket_empty", "bucket:bucket_empty")
+disp("water", "Water", 0, "bucket:bucket_water", "bucket:bucket_empty")
+--[[
+disp("uranium", "Uranium", 10, "display_blocks:uranium_block", "")
+disp("earth", "Earth", 0, "display_blocks:compressed_earth", "")
+disp("metal", "Metal", 2, "default:steel_block", "")
+disp("universia", "Universia", 15, "", "")
+]]
 
 if minetest.get_modpath("titanium") then
-	disp("titanium", "Titanium", 0, "titanium:block", {})
+	disp("titanium", "Titanium", 0, "titanium:block", "")
 end
 
 --
@@ -125,14 +127,35 @@ minetest.register_craft({
 		{'', 'technic:uranium', ''},
 	}
 })
-
-minetest.register_node("display:blocks", {
+--[[
+minetest.register_node("display_blocks:compressed_earth", {
 	description = "Compressed Dirt",
 	tile_images = {"display_blocks_compressed_dirt.png"},
 	groups = {crumbly=3,soil=1},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}),
+})
+]]
+minetest.register_node("display_blocks:empty_display", {
+	description = "Empty Display",
+	tile_images = {"display_blocks_empty_display.pmg"},
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	sounds = default.node_sound_glass_defaults(),
+})
+--[[
+minetest.register_node("display_blocks:industria_cube", {
+	description = "Industria Cube"
+	tile_images = "display_blocks_industria_cube.png",
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	sounds = default.node_sound_glass_defaults(),
+})
+
+minetest.register_node("display_blocks:natura_cube", {
+	description = "Natura Cube",
+	tile_images = {"display_blocks_natura_cube.png",
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	sounds = default.node_sound_glass_defaults(),
 })
 
 minetest.register_craft({
@@ -143,5 +166,37 @@ minetest.register_craft({
 		{'default:gravel', 'default:dirt', 'default:gravel'},
 	}
 })
-	
+]]
+minetest.register_craft({
+	output = "display_blocks:empty_display",
+	recipe = {
+		{'default:desert_sand', 'default:glass', 'default:sand'},
+		{'default:glass', '', 'default:glass'},
+		{'default:sand', 'default:glass', 'default:desert_sand'},
+	},
+})
+--[[
+minetest.register_craft({
+	output = "display_blocks:natura_cube",
+	recipe = {
+		{'', 'display_blocks:air_base', ''},
+		{'display_blocks:fire_base', '', 'display_blocks:water_base'},
+		{'', 'display_blocks:earth_base', ''},
+	},
+})
+
+minetest.register_craft({
+	output = "display_blocks:industria_cube",
+	recipe = {
+		{'', 'display_blocks:mese_base', ''},
+		{'display_blocks:metal_base', '', 'display_blocks:glass_base'},
+		{'', 'display_blocks:uranium_base', ''},
+	},
+})
+
+minetest.register_craft({
+	output = "display_blocks:universia_base",
+	recipe = {{'display_blocks:natura_cube', 'deisplay_blocks:mese_giver', 'display_blocks:industria_cube'}},
+})
+]]
 print("[Display Blocks] Loaded! by jojoa1997 :-)")
