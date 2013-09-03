@@ -61,16 +61,18 @@ function disp(base, name, light, rp)
 end
 
 -- disp(base, name, rec, rp)
-disp("mese", "Mese", 0, "default:mese_block", "")
-disp("glass", "Glass", 0, "default:sand", "")
+disp("mese", "Mese", 0, "default:mese_block", {})
+disp("glass", "Glass", 0, "default:sand", {})
 disp("fire", "Fire", 15, "bucket:bucket_lava", {{"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}})
 disp("air", "Air", 5, "bucket:bucket_empty", {{"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}})
 disp("water", "Water", 0, "bucket:bucket_water", {{"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}})
-disp("uranium", "Uranium", 10, "display_blocks:uranium_block", "")
+disp("uranium", "Uranium", 10, "display_blocks:uranium_block", {})
+disp("earth", "Earth", 0, "display_blocks:compressed_earth", {})
+disp("metal", "Metal", 2, "default:steel_block", {})
 
 
 if minetest.get_modpath("titanium") then
-	disp("titanium", "Titanium", 0, "titanium:block", '')
+	disp("titanium", "Titanium", 0, "titanium:block", {})
 end
 
 --
@@ -124,4 +126,22 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_node("display:blocks", {
+	description = "Compressed Dirt",
+	tile_images = {"display_blocks_compressed_dirt.png"},
+	groups = {crumbly=3,soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
+})
+
+minetest.register_craft({
+	output= "display_blocks:compressed_dirt",
+	recipe = {
+		{'default:gravel', 'default:dirt', 'default:gravel'},
+		{'default:dirt', 'default:gravel', 'default:dirt'},
+		{'default:gravel', 'default:dirt', 'default:gravel'},
+	}
+})
+	
 print("[Display Blocks] Loaded! by jojoa1997 :-)")
