@@ -1,4 +1,11 @@
-dofile(minetest.get_modpath("display_blocks").."/config.txt")
+technic_uranium = false
+
+if technic_uranium == false then
+	dofile(minetest.get_modpath("display_blocks").."/uranium.lua")
+elseif technic_uranium == true then
+	minetest.register_alias("display_blocks:uranium_dust", "technic:uranium_block")
+	minetest.register_alias("display_blocks:uranium_block", "technic:uranium_block")
+end
 
 function disp(base, name, light, rp)
 	minetest.register_node( "display_blocks:"..base.."_base", {
@@ -49,7 +56,7 @@ function disp(base, name, light, rp)
 			{rec, 'default:glass', rec},
 			{'', rec, ''},
 		},
-		replacements = {rp},
+		replacements = rp,
 	})
 end
 
@@ -59,16 +66,13 @@ disp("glass", "Glass", 0, "default:sand", "")
 disp("fire", "Fire", 15, "bucket:bucket_lava", {{"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}, {"bucket:bucket_lava", "bucket:bucket_empty"}})
 disp("air", "Air", 5, "bucket:bucket_empty", {{"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}, {"bucket:bucket_empty", "bucket:bucket_empty"}})
 disp("water", "Water", 0, "bucket:bucket_water", {{"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}, {"bucket:bucket_water", "bucket:bucket_empty"}})
+disp("uranium", "Uranium", 10, "display_blocks:uranium_block", "")
 
-if minetest.get_modpath("technic") and uranium_with_technic == false then
-	dofile(minetest.get_modpath("display_blocks").."/technic.lua")
-else
-	dofile(minetest.get_modpath("display_blocks").."/uranium.lua")
-end
 
 if minetest.get_modpath("titanium") then
 	disp("titanium", "Titanium", 0, "titanium:block", '')
 end
+
 --
 --Mese Giver Display
 --
@@ -108,6 +112,15 @@ minetest.register_craft({
 		{'', 'default:mese_crystal_fragment', ''},
 		{'display_blocks:mese_base', 'default:mese_block', 'display_blocks:mese_base'},
 		{'', 'display_blocks:mese_base', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'display_blocks:uranium_base 5',
+	recipe = {
+		{'', 'default:mese_crystal_fragment', ''},
+		{'technic:uranium', 'default:glass', 'technic:uranium'},
+		{'', 'technic:uranium', ''},
 	}
 })
 

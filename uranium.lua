@@ -54,5 +54,3 @@ minetest.register_ore({
 	height_min = -7000,
 	height_max = -5000,
 })
-
-disp("uranium", "Uranium", 10, "display_blocks:uranium_block", "")
