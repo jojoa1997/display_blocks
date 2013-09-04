@@ -41,7 +41,7 @@ minetest.register_ore({
 	clust_num_ores =18,
 	clust_size = 3,
 	height_min = -3000,
-	height_max = -200,
+	height_max = -2000,
 })
 
 minetest.register_ore({
