@@ -195,7 +195,6 @@ minetest.register_node("display_blocks:compressed_earth", {
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}),
-	light_source = 15,
 })
 
 minetest.register_node("display_blocks:empty_display", {
