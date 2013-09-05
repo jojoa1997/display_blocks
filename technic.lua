@@ -3,7 +3,7 @@ if enable_display_uranium == false then
 	minetest.register_alias("display_blocks:uranium_block", "technic:uranium_block")
 end
 
-if technic_uranium_new_ore_gen = true then
+if technic_uranium_new_ore_gen == true then
 	minetest.register_ore({
 		ore_type = "scatter",
 		ore = "technic:uranium_mineral",
@@ -27,11 +27,13 @@ if technic_uranium_new_ore_gen = true then
 	})
 end
 
-minetest.register_craft({
-	output = 'display_blocks:uranium_base 5',
-	recipe = {
-		{'', 'default:mese_crystal_fragment', ''},
-		{'technic:uranium', 'default:glass', 'technic:uranium'},
-		{'', 'technic:uranium', ''},
-	}
-})
+if enable_technic_recipe == true then
+	minetest.register_craft({
+		output = 'display_blocks:uranium_base 5',
+		recipe = {
+			{'', 'default:mese_crystal_fragment', ''},
+			{'technic:uranium_block', 'display_blocks:empty_display', 'technic:uranium_block'},
+			{'', 'technic:uranium_block', ''},
+		}
+	})
+end

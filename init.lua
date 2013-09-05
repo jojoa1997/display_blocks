@@ -1,11 +1,10 @@
 local PATH = minetest.get_modpath("display_blocks")
 
 dofile(PATH.."/config.lua")
+dofile(PATH.."/technic.lua")
 
 if enable_display_uranium == true then
 	dofile(minetest.get_modpath("display_blocks").."/uranium.lua")
-elseif dofile(minetest.get_modpath("technic")) then
-	dofile(PATH.."/tecnic.lua")
 end
 
 local Scale = 0.9
