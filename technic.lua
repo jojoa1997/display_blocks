@@ -1,6 +1,7 @@
 if enable_display_uranium == false then
 	minetest.register_alias("display_blocks:uranium_dust", "technic:uranium_block")
 	minetest.register_alias("display_blocks:uranium_block", "technic:uranium_block")
+	minetest.register_alias("display_blocks:uranium_ore", "technic:mineral_uranium")
 end
 
 if technic_uranium_new_ore_gen == true then
