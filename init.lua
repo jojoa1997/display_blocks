@@ -97,7 +97,7 @@ minetest.register_node( "display_blocks:mese_giver_base", {
 
 minetest.register_abm({
 	nodenames = {"display_blocks:mese_giver_base"},
-	interval = 30.0,
+	interval = 20.0,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		pos.y = pos.y + 1
@@ -118,9 +118,9 @@ minetest.register_on_dignode(remove_crystal)
 minetest.register_craft({
 	output = 'display_blocks:mese_giver_base',
 	recipe = {
-		{'', 'default:mese_crystal_fragment', ''},
-		{'display_blocks:mese_base', 'default:mese_block', 'display_blocks:mese_base'},
-		{'', 'display_blocks:mese_base', ''},
+		{'display_blocks:universia_base', 'default:mese_crystal_fragment', 'display_blocks:universia_base'},
+		{'display_blocks:universia_base', 'display_blocks:mese_base', 'display_blocks:universia_base'},
+		{'display_blocks:universia_base', 'display_blocks:universia_base', 'display_blocks:universia_base'},
 	}
 })
 
