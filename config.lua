@@ -4,3 +4,5 @@ enable_display_uranium = true
 technic_uranium_new_ore_gen = true
 --Enable to add a recipe that uses "technic:uranium"
 enable_technic_recipe = true
+--Enable a way to build the mese giver ingame
+enable_mese_giver_recipe = true

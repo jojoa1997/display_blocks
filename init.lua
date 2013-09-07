@@ -114,22 +114,23 @@ function remove_crystal(pos, node, active_object_count, active_object_count_wide
   end
 end
 minetest.register_on_dignode(remove_crystal)
-
-minetest.register_craft({
-	type = "shapeless",
-	output = 'display_blocks:mese_giver_base',
-	recipe = {
-		'default:mese_crystal_fragment',
-		'display_blocks:earth_base', 		
-		'display_blocks:water_base',
-		'display_blocks:air_base',
-		'display_blocks:mese_base',
-		'display_blocks:fire_base',
-		'display_blocks:uranium_base',
-		'display_blocks:metal_base',
-		'display_blocks:glass_base',
-	}
-})
+if enable_mese_giver_recipe == true then
+	minetest.register_craft({
+		type = "shapeless",
+		output = 'display_blocks:mese_giver_base',
+		recipe = {
+			'default:mese_crystal_fragment',
+			'display_blocks:earth_base', 		
+			'display_blocks:water_base',
+			'display_blocks:air_base',
+			'display_blocks:mese_base',
+			'display_blocks:fire_base',
+			'display_blocks:uranium_base',
+			'display_blocks:metal_base',
+			'display_blocks:glass_base',
+		}
+	})
+end
 
 minetest.register_craft({
 	type = "shapeless",
@@ -197,15 +198,25 @@ function remove_crystal(pos, node, active_object_count, active_object_count_wide
   end
 end
 minetest.register_on_dignode(remove_crystal)
-
-minetest.register_craft({
-	output = "display_blocks:universia_base",
-	recipe = {
-		{'default:mese_crystal', 'default:mese_crystal', 'default:mese_crystal'},
-		{'display_blocks:natura_cube', 'display_blocks:mese_giver_base', 'display_blocks:industria_cube'},
-		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
-	},
-})
+if enable_mese_giver_recipe == true then
+	minetest.register_craft({
+		output = "display_blocks:universia_base",
+		recipe = {
+			{'default:mese_crystal', 'default:mese_crystal', 'default:mese_crystal'},
+			{'display_blocks:natura_cube', 'display_blocks:mese_giver_base', 'display_blocks:industria_cube'},
+			{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		},
+	})
+elseif enable_mese_giver_recipe == false then
+	minetest.register_craft({
+		output = "display_blocks:universia_base",
+		recipe = {
+			{'default:mese_crystal', 'default:mese_crystal', 'default:mese_crystal'},
+			{'display_blocks:natura_cube', 'default:mese_block', 'display_blocks:industria_cube'},
+			{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		},
+	})
+end
 
 --
 -- Other Blocks
