@@ -116,13 +116,37 @@ end
 minetest.register_on_dignode(remove_crystal)
 
 minetest.register_craft({
+	type = "shapeless",
 	output = 'display_blocks:mese_giver_base',
 	recipe = {
-		{'display_blocks:universia_base', 'default:mese_crystal_fragment', 'display_blocks:universia_base'},
-		{'display_blocks:universia_base', 'display_blocks:mese_base', 'display_blocks:universia_base'},
-		{'display_blocks:universia_base', 'display_blocks:universia_base', 'display_blocks:universia_base'},
+		'default:mese_crystal_fragment',
+		'display_blocks:earth_base', 		
+		'display_blocks:water_base',
+		'display_blocks:air_base',
+		'display_blocks:mese_base',
+		'display_blocks:fire_base',
+		'display_blocks:uranium_base',
+		'display_blocks:metal_base',
+		'display_blocks:glass_base',
 	}
 })
+
+minetest.register_craft({
+	type = "shapeless",
+	output = 'display_blocks:mese_giver_base',
+	recipe = {
+		'display_blocks:earth_crystal', 		
+		'display_blocks:water_crystal',
+		'display_blocks:air_crystal',
+		'display_blocks:mese_crystal',
+		'display_blocks:fire_crystal',
+		'display_blocks:uranium_crystal',
+		'display_blocks:metal_crystal',
+		'display_blocks:glass_crystal',
+		'display_blocks:universia_crystal',
+	}
+})
+
 
 --
 -- Universia Display
