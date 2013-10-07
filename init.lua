@@ -38,21 +38,25 @@ function disp(base, name, light, rec, rp)
 
 	minetest.register_abm({
 		nodenames = {"display_blocks:"..base.."_base"},
-		interval = 1.0,
+		interval = 2.0,
 		chance = 1.0,
 		action = function(pos, node, active_object_count, active_object_count_wider)
 			pos.y = pos.y + 1
-			minetest.env:add_node(pos, {name="display_blocks:"..base.."_crystal"})
+			local n = minetest.get_node(pos)
+			if n and n.name == "air" then
+				minetest.env:add_node(pos, {name="display_blocks:"..base.."_crystal"})
+			end
 		end
 	})
 
 	function remove_crystal(pos, node, active_object_count, active_object_count_wider)
-		if
-		  node.name == "display_blocks:"..base.."_base"
-		then
-		  pos.y = pos.y + 1
-		  minetest.env:remove_node(pos, {name="display_blocks:"..base.."_crystal"})
-	  end
+		if node.name == "display_blocks:"..base.."_base" then
+			pos.y = pos.y + 1
+			local n = minetest.get_node(pos)
+			if n and n.name == "display_blocks:"..base.."_crystal" then
+				minetest.env:remove_node(pos)
+			end
+		end
 	end
 	minetest.register_on_dignode(remove_crystal)
 
